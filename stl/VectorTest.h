@@ -7,6 +7,13 @@
 
 using namespace std;
 
+struct MyPair{
+    int first, second;
+
+    bool operator<(const MyPair& other) const{
+        return first < other.first;
+    }
+};
 
 class DescendingSort {
 public:
@@ -23,6 +30,7 @@ public :
 
 //        sortThem();
         boundTest();
+        boundTestOnCustom();
     }
 
 private:
@@ -105,6 +113,12 @@ private:
              << endl; // val > x or vec.end()
         cout << "Lower bound of " << lowerBoundOf << " : " << *lower_bound(vec.cbegin(), vec.cend(), lowerBoundOf)
              << endl; // val <= x or  vec.begin
+    }
+
+    static void boundTestOnCustom() {
+        vector<MyPair> vec = {{1,2},{3,4},{5,6}};
+        auto upper = upper_bound(vec.begin(),vec.end(),MyPair{2,3});
+        cout<<upper->first << "and" << upper->second <<endl;
     }
 
 
