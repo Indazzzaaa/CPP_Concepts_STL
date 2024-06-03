@@ -8,9 +8,9 @@
 using namespace std;
 
 
-class DescendingSort{
+class DescendingSort {
 public:
-    bool operator()(int first, int second){ return first>second;}
+    bool operator()(int first, int second) { return first > second; }
 };
 
 class VectorTest {
@@ -21,7 +21,8 @@ public :
         cout << "->> Vector Test Running ..." << endl;
 //        create();
 
-        sortThem();
+//        sortThem();
+        boundTest();
     }
 
 private:
@@ -75,8 +76,7 @@ private:
 
     }
 
-    static bool comparator(const int first,const int second)
-    { return first>second;}
+    static bool comparator(const int first, const int second) { return first > second; }
 
 
     static void sortThem() {
@@ -95,6 +95,16 @@ private:
         // way-3
         sort(vec.begin(), vec.end(), DescendingSort());
         log(vec, "After sorting");
+    }
+
+    static void boundTest() {
+        vector<int> vec = {1, 2, 3, 4, 5, 6};
+        int upperBoundOf = 5;
+        int lowerBoundOf = 2;
+        cout << "Upper bound of " << upperBoundOf << " : " << *upper_bound(vec.cbegin(), vec.cend(), upperBoundOf)
+             << endl; // val > x or vec.end()
+        cout << "Lower bound of " << lowerBoundOf << " : " << *lower_bound(vec.cbegin(), vec.cend(), lowerBoundOf)
+             << endl; // val <= x or  vec.begin
     }
 
 
