@@ -34,7 +34,7 @@ public :
     }
 
 private:
-    static void log(vector<int> vec, string message) {
+    static void log(vector<int>& vec, string message) {
 
 
         stringstream ss;
@@ -118,7 +118,9 @@ private:
     static void boundTestOnCustom() {
         vector<MyPair> vec = {{1,2},{3,4},{5,6}};
         auto upper = upper_bound(vec.begin(),vec.end(),MyPair{2,3});
+        auto lower = lower_bound(vec.begin(),vec.end(),MyPair{-1,-2});
         cout<<upper->first << "and" << upper->second <<endl;
+        cout<<lower->first << "and" << lower->second <<endl;
     }
 
 

@@ -29,4 +29,5 @@ add_executable(Clion src/main.cpp
         "Utils/Segment & Binary Indexed/BIT.h"
         stl/entry.h
         stl/VectorTest.h
+        stl/LinkedList.h
 )
